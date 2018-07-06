@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import AppHeaderContainer from './containers/AppHeaderContainer'
 import ItemsContainer from './containers/ItemsContainer'
+import ItemDetailContainer from './containers/ItemDetailContainer'
 
 const App = () => (
 
@@ -9,6 +10,7 @@ const App = () => (
 
     <AppHeaderContainer/>
       <ItemsContainer/>
+      <ItemDetailContainer/>
 
     {/*<AppFooterContainer/>*/}
 

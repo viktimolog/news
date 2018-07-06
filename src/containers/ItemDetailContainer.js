@@ -1,15 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ItemDetail from '../components/ItemDetail'
+import { findItems, getItems, setCurItem } from '../actions/actionCreator'
 
-const ItemDetailContainer = ({curItem}) => {
+const ItemDetailContainer = ({curItem, setCurItem}) => {
   if (curItem === false) return null
-  return (<ItemDetail item={curItem}/>)
+  return (<ItemDetail item={curItem} setCurItem={() => setCurItem(false)}/>)
 }
 
 const mapStateToProps = state => ({
   curItem: state.mainReducer.curItem
 })
 
-export default connect(mapStateToProps, null)(ItemDetailContainer)
+const mapDispatchToProps = {
+  setCurItem
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(ItemDetailContainer)

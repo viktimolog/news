@@ -4,20 +4,6 @@ import Avatar from '@material-ui/core/Avatar'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import './style.css'
 
-const styles = {
-  row: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  avatar: {
-    margin: 10,
-  },
-  bigAvatar: {
-    width: 100,
-    height: 100,
-  },
-}
-
 const HeaderAvatar = ({curItem}) => {
   const avatar = curItem
     ?

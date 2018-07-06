@@ -12,6 +12,7 @@ class ItemsContainer extends React.Component {
   }
 
   render () {
+    if (this.props.curItem !== false) return null
     return (
       <div>
         {/*<Search findItems={this.props.findItems}/>*/}
@@ -23,6 +24,7 @@ class ItemsContainer extends React.Component {
 }
 
 ItemsContainer.propTypes = {
+  curItem: PropTypes.oneOfType([PropTypes.Boolean, PropTypes.object]).isRequired,
   items: PropTypes.array.isRequired,
   setCurItem: PropTypes.func.isRequired,
   getItems: PropTypes.func.isRequired,
@@ -30,7 +32,8 @@ ItemsContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  items: state.mainReducer.items
+  items: state.mainReducer.items,
+  curItem: state.mainReducer.curItem
 })
 
 const mapDispatchToProps = {
