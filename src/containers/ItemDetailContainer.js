@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ItemDetail from '../components/ItemDetail'
-import { findItems, getItems, setCurItem } from '../actions/actionCreator'
+import { setCurItem } from '../actions/actionCreator'
 
 const ItemDetailContainer = ({curItem, setCurItem}) => {
   if (curItem === false) return null
-  return (<ItemDetail item={curItem} setCurItem={() => setCurItem(false)}/>)
+  return(
+    <ItemDetail item={curItem} setCurItem={() => setCurItem(false)}/>
+  )
 }
 
 const mapStateToProps = state => ({

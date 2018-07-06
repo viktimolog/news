@@ -10,15 +10,16 @@ import './style.css'
 
 const Styles = {
   display: 'flex',
-  justifyContent: 'left',
+  justifyContent: 'space-between',
   flexDirection: 'row',
   alignItems: 'center',
   width: '30%',
   margin: 10,
+  padding: 10,
+  paddingBottom: 6,
   border: '1px',
   borderStyle: 'solid',
-  borderColor: '#ff829e',
-  borderRadius: '50'
+  borderColor: '#ff829e'
 }
 
 const Item = ({item, setCurItem}) => (
@@ -39,12 +40,13 @@ const Item = ({item, setCurItem}) => (
     </CardContent>
     <CardActions>
       <Button
+        style={{margin:-14}}
         size="small"
         color="primary"
         variant="contained"
         onClick={setCurItem}
       >
-        Learn More
+        More
       </Button>
     </CardActions>
   </Card>
