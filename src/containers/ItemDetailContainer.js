@@ -1,21 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import ItemDetail from '../components/ItemDetail'
-import { setCurItem } from '../actions/actionCreator'
+import Header from '../components/Header'
 
-const ItemDetailContainer = ({curItem, setCurItem}) => {
-  if (curItem === false) return null
-  return(
-    <ItemDetail item={curItem} setCurItem={() => setCurItem(false)}/>
-  )
-}
+const ItemDetailContainer = ({curItem, goBack, ownProps}) => (
+    <div>
+        {/*<AppHeaderContainer/>*/}
+        <Header curItem={curItem}/>
+        <ItemDetail item={curItem} goBack={goBack}/>
+    </div>
+)
 
-const mapStateToProps = state => ({
-  curItem: state.mainReducer.curItem
+const mapStateToProps = (state, ownProps) => ({
+    curItem: state.mainReducer.items.find(item => item.id === ownProps.params.id),
+    goBack: ownProps.router.goBack,
+    ownProps
 })
 
-const mapDispatchToProps = {
-  setCurItem
-}
+const mapDispatchToProps = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemDetailContainer)

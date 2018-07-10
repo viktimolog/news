@@ -1,4 +1,5 @@
 export const TextConstants = {
+  TITLEAPP: 'List of the clients',
   JOBTITLE: 'Job',
   COMPANYTITLE: 'company: ',
   TITLECLIENT: 'title: ',

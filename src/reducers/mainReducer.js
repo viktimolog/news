@@ -1,7 +1,6 @@
 import {
   FIND_ITEMS,
-  GET_ITEMS,
-  SET_CURITEM
+  GET_ITEMS
 } from '../actions/actionTypes'
 
 const initialState = {
@@ -15,13 +14,6 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload
-      }
-    }
-
-    case SET_CURITEM: {
-      return {
-        ...state,
-        curItem: action.curItem
       }
     }
 
