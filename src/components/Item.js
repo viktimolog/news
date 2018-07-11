@@ -46,7 +46,7 @@ const Item = ({item}) => (
                 color="primary"
                 variant="contained"
             >
-                <Link to={`/items/${item.id}`} style={{color: "white"}}>More</Link>
+                <Link to={`/items/${item.id}`} style={{color: 'white'}}>More</Link>
             </Button>
         </CardActions>
     </Card>
