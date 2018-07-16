@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   items: [],
-  curItem: false
+  // curItem: false
 }
 
 const mainReducer = (state = initialState, action) => {

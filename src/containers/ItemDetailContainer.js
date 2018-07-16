@@ -23,8 +23,8 @@ class ItemDetailContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  curItem: state.mainReducer.items.find(item => item.id === ownProps.params.id),
-  goBack: ownProps.router.goBack
+  curItem: state.mainReducer.items.find(item => item.id === ownProps.match.params.id),
+  goBack: ownProps.history.goBack
 })
 
 const mapDispatchToProps = {

@@ -17,8 +17,7 @@ class ItemsContainer extends React.Component {
             <div>
                 {/*<Search findItems={this.props.findItems}/>*/}
                 <Header curItem={false}/>
-                <Items
-                    items={this.props.items}
+                <Items items={this.props.items}
                 />
             </div>)
     }

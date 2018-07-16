@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from 'semantic-ui-react'
+// import { Input } from 'semantic-ui-react'
 
 export default class Search extends React.Component {
   state = {text: ''}

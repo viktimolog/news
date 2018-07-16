@@ -1,21 +1,36 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import ItemDetailContainer from './containers/ItemDetailContainer'
-import ItemsContainer from './containers/ItemsContainer'
-import store from './store'
-import { Router, Route, hashHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const history = syncHistoryWithStore(hashHistory, store)
+import { createStore, applyMiddleware, compose} from 'redux';
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import AppReducer from './reducers'
+
+import {ConnectedRouter, routerMiddleware} from 'react-router-redux';
+
+import createHistory from 'history/createBrowserHistory';
+
+const history = createHistory();
+const routing = routerMiddleware(history);
+
+localStorage.clear();
+
+export const store = createStore(
+    AppReducer,
+    compose(
+        applyMiddleware(routing, thunk),
+    )
+);
+
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={ItemsContainer}/>
-      <Route path="/items/:id" component={ItemDetailContainer}/>
-    </Router>
-  </Provider>,
-  document.getElementById('root')
-)
+    <Provider store = {store}>
+        <ConnectedRouter history={history}>
+            < App/>
+        </ConnectedRouter>
+    </Provider>, document.getElementById('root'));
+
+
+
 
